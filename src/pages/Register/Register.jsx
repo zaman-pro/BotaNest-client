@@ -81,7 +81,7 @@ const Register = () => {
 
       {/* Form Section */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-        <div className="card w-full max-w-sm shrink-0 py-5 border-2 border-secondary/30 rounded-xl">
+        <div className="card w-full max-w-xl shrink-0 py-5 border-2 border-secondary/30 rounded-xl">
           <h1 className="text-3xl font-bold text-center text-secondary">
             Create Account
           </h1>
@@ -91,7 +91,7 @@ const Register = () => {
               <input
                 name="name"
                 type="text"
-                className="input"
+                className="input w-full"
                 placeholder="Enter your name"
                 required
               />
@@ -100,7 +100,7 @@ const Register = () => {
               <input
                 name="photo"
                 type="text"
-                className="input"
+                className="input w-full"
                 placeholder="Enter your photo url"
                 required
               />

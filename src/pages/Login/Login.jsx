@@ -65,7 +65,7 @@ const Login = () => {
 
       {/* Form Section */}
       <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-        <div className="card w-full max-w-sm py-5 border-2 border-secondary/30 rounded-xl">
+        <div className="card w-full max-w-xl py-5 border-2 border-secondary/30 rounded-xl">
           <h1 className="text-3xl font-bold text-center">
             Login to <span className="text-secondary italic">BotaNest</span>
           </h1>
