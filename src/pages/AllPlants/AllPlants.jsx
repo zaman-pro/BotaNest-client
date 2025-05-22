@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
+import useTitle from "../../utils/useTitle";
 
 const AllPlants = () => {
+  useTitle("All Plants - BotaNest");
   const initialPlants = useLoaderData();
   const [plants, setPlants] = useState(initialPlants);
 
@@ -12,8 +14,8 @@ const AllPlants = () => {
           <tr>
             <th>SN</th>
             <th>Plant Name</th>
-            <th className="hidden sm:table-cell">Category</th>
-            <th className="hidden lg:table-cell">Watering</th>
+            <th className="hidden lg:table-cell">Category</th>
+            <th className="hidden md:table-cell">Watering Frequency</th>
             <th className="hidden lg:table-cell">Username</th>
             <th className="hidden lg:table-cell">Email</th>
             <th>Actions</th>
@@ -33,14 +35,14 @@ const AllPlants = () => {
                   <div className="font-bold">{plant.plantName}</div>
                 </div>
               </td>
-              <td className="hidden sm:table-cell">{plant.category}</td>
-              <td className="hidden lg:table-cell">
+              <td className="hidden lg:table-cell">{plant.category}</td>
+              <td className="hidden md:table-cell">
                 {plant.wateringFrequency}
               </td>
               <td className="hidden lg:table-cell">{plant.userName}</td>
               <td className="hidden lg:table-cell">{plant.userEmail}</td>
               <td>
-                <Link to={`/plants/${plant._id}`}>
+                <Link to={`/allPlants/${plant._id}`}>
                   <button className="btn btn-xs bg-secondary/90">
                     Details
                   </button>

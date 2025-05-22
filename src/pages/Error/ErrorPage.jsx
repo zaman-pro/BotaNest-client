@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
+import useTitle from "../../utils/useTitle";
 
 const ErrorPage = () => {
+  useTitle("Error - BotaNest");
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col justify-center items-center gap-8 min-h-screen">

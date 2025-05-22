@@ -1,11 +1,11 @@
 import React from "react";
-// import useTitle from "../utils/useTitle";
+import useTitle from "../../utils/useTitle";
 
 const Loading = () => {
-  //   useTitle("Loading...");
+  useTitle("Loading...");
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <span className="loading loading-spinner text-secondary"></span>
+      <span className="loading loading-dots loading-xl  text-secondary"></span>
     </div>
   );
 };

@@ -1,16 +1,16 @@
 import React, { use, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
-// import useTitle from "../utils/useTitle";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthContext";
 import Swal from "sweetalert2";
+import useTitle from "../../utils/useTitle";
 
 const Login = () => {
   const { user, logIn, googleLogIn } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  //   useTitle("Login - BotaNest");
+  useTitle("Login - BotaNest");
 
   const [ShowPassword, setShowPassword] = useState(false);
 

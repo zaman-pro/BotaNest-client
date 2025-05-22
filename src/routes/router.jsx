@@ -8,6 +8,8 @@ import AddPlant from "../pages/AddPlant/AddPlant";
 import AllPlants from "../pages/AllPlants/AllPlants";
 import PrivateRoute from "../provider/PrivateRoute";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import MyPlants from "../pages/MyPlants/MyPlants";
+import Loading from "../pages/Loading/Loading";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,15 @@ const router = createBrowserRouter([
       { path: "/register", Component: Register },
       { path: "/login", Component: Login },
       { path: "/forgotPassword", Component: ForgotPassword },
+
+      {
+        path: "/allPlants",
+        Component: AllPlants,
+        loader: () =>
+          fetch("https://a10-bota-nest-server-side.vercel.app/plants"),
+
+        hydrateFallbackElement: <Loading></Loading>,
+      },
       {
         path: "/addPlant",
         element: (
@@ -32,16 +43,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/allPlants",
+        path: "/myPlants",
         element: (
           <PrivateRoute>
-            <AllPlants />
+            <MyPlants></MyPlants>
           </PrivateRoute>
         ),
-        loader: () =>
-          fetch("https://a10-bota-nest-server-side.vercel.app/plants"),
-
-        hydrateFallbackElement: <h1>Loading...</h1>,
       },
     ],
   },

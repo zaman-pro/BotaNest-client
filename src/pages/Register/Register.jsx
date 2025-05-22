@@ -1,18 +1,17 @@
 import React, { use, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
-
-// import useTitle from "../utils/useTitle";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../../provider/AuthContext";
 import Swal from "sweetalert2";
+import useTitle from "../../utils/useTitle";
 
 const Register = () => {
   const { createUser, user, setUser, googleLogIn, updateUser, passwordRegex } =
     use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  //   useTitle("Register - BotaNest");
+  useTitle("Register - BotaNest");
 
   const [ShowPassword, setShowPassword] = useState(false);
 
@@ -87,21 +86,21 @@ const Register = () => {
           </h1>
           <form onSubmit={handleRegister} className="card-body">
             <fieldset className="fieldset">
-              <label className="label font-semibold">Name</label>
-              <input
-                name="name"
-                type="text"
-                className="input w-full"
-                placeholder="Enter your name"
-                required
-              />
-
               <label className="label font-semibold">Photo URL</label>
               <input
                 name="photo"
                 type="text"
                 className="input w-full"
                 placeholder="Enter your photo url"
+                required
+              />
+
+              <label className="label font-semibold">Name</label>
+              <input
+                name="name"
+                type="text"
+                className="input w-full"
+                placeholder="Enter your name"
                 required
               />
 

@@ -2,14 +2,14 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthContext";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
-// import useTitle from "../utils/useTitle";
+import useTitle from "../../utils/useTitle";
 
 const ForgotPassword = () => {
   const { resetPassword } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-  //   useTitle("Reset Passoword - BotaNest");
+  useTitle("Reset Passoword - BotaNest");
 
   const handleSubmit = (e) => {
     e.preventDefault();
