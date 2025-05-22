@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 
-const AddPlantForm = () => {
-  const [formData, setFormData] = useState({});
-
-  const handleChange = (e) => {};
-
+const PlantForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const plantData = Object.fromEntries(formData.entries());
 
-    // send coffee data to the db
-    console.log("Form submitted:", formData);
+    // send plantData to the db
+    fetch("http://localhost:3000/plants", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(plantData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("response from db", data);
+      });
   };
 
   return (
@@ -21,45 +30,37 @@ const AddPlantForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Image</label>
-
             <input
               type="text"
-              name="image"
-              placeholder="Image"
-              value={formData.image}
-              onChange={handleChange}
+              name="imageURL"
+              placeholder="Image URL"
               className="input input-bordered w-full"
               required
+              defaultValue={"imageURL"}
             />
           </fieldset>
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Plant Name</label>
-
             <input
               type="text"
               name="plantName"
               placeholder="Plant Name"
-              value={formData.plantName}
-              onChange={handleChange}
               className="input input-bordered w-full"
               required
+              defaultValue={"plantName"}
             />
           </fieldset>
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Category</label>
-
             <select
               name="category"
-              value={formData.category}
-              onChange={handleChange}
               className="select select-bordered w-full"
               required
+              defaultValue={"category"}
             >
-              <option disabled value="">
-                Select Category
-              </option>
+              <option defaultValue="">Select Category</option>
               <option value="succulent">Succulent</option>
               <option value="fern">Fern</option>
               <option value="flowering">Flowering</option>
@@ -68,17 +69,12 @@ const AddPlantForm = () => {
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Care Level</label>
-
             <select
               name="careLevel"
-              value={formData.careLevel}
-              onChange={handleChange}
               className="select select-bordered w-full"
               required
             >
-              <option disabled value="">
-                Select Care Level
-              </option>
+              <option defaultValue="">Select Care Level</option>
               <option value="easy">Easy</option>
               <option value="moderate">Moderate</option>
               <option value="difficult">Difficult</option>
@@ -87,12 +83,9 @@ const AddPlantForm = () => {
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Last Watered</label>
-
             <input
               type="date"
               name="lastWatered"
-              value={formData.lastWatered}
-              onChange={handleChange}
               className="input input-bordered w-full"
               required
             />
@@ -100,12 +93,9 @@ const AddPlantForm = () => {
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Next Watering</label>
-
             <input
               type="date"
               name="nextWatering"
-              value={formData.nextWatering}
-              onChange={handleChange}
               className="input input-bordered w-full"
               required
             />
@@ -113,14 +103,13 @@ const AddPlantForm = () => {
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Health Status</label>
-
             <input
               type="text"
               name="healthStatus"
               placeholder="Health Status"
-              value={formData.healthStatus}
-              onChange={handleChange}
               className="input input-bordered w-full"
+              required
+              defaultValue={"healthStatus"}
             />
           </fieldset>
 
@@ -131,53 +120,46 @@ const AddPlantForm = () => {
             <input
               type="text"
               name="wateringFrequency"
-              placeholder="Watering Frequency"
-              value={formData.wateringFrequency}
-              onChange={handleChange}
+              placeholder="e.g., every 3 days"
               className="input input-bordered w-full"
               required
+              defaultValue={"wateringFrequency"}
             />
           </fieldset>
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">User Email</label>
-
             <input
               type="email"
               name="userEmail"
               placeholder="User Email"
-              value={formData.userEmail}
-              onChange={handleChange}
               className="input input-bordered w-full"
               required
+              defaultValue={"user@email"}
             />
           </fieldset>
 
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">User Name</label>
-
             <input
               type="text"
               name="userName"
               placeholder="User Name"
-              value={formData.userName}
-              onChange={handleChange}
               className="input input-bordered w-full"
               required
+              defaultValue={"user_name"}
             />
           </fieldset>
         </div>
 
         <fieldset className="fieldset">
           <label className="label text-xs font-semibold">Description</label>
-
           <textarea
             name="description"
             placeholder="Description"
-            value={formData.description}
-            onChange={handleChange}
             className="textarea textarea-bordered w-full"
             required
+            defaultValue={"Description"}
           />
         </fieldset>
 
@@ -189,4 +171,4 @@ const AddPlantForm = () => {
   );
 };
 
-export default AddPlantForm;
+export default PlantForm;
