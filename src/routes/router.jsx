@@ -5,6 +5,7 @@ import ErrorPage from "../pages/Error/ErrorPage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddPlant from "../pages/AddPlant/AddPlant";
+import AllPlants from "../pages/AllPlants/AllPlants";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "/addPlant",
         Component: AddPlant,
+      },
+      {
+        path: "/allPlants",
+        Component: AllPlants,
+        loader: () =>
+          fetch("https://a10-bota-nest-server-side.vercel.app/plants"),
+
+        hydrateFallbackElement: <h1>Loading...</h1>,
       },
     ],
   },
