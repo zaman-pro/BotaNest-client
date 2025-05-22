@@ -8,7 +8,7 @@ const PlantForm = () => {
     const plantData = Object.fromEntries(formData.entries());
 
     // send plantData to the db
-    fetch("http://localhost:3000/plants", {
+    fetch("https://a10-bota-nest-server-side.vercel.app/plants", {
       method: "POST",
       headers: {
         "content-type": "application/json",
