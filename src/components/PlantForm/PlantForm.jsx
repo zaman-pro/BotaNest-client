@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const PlantForm = () => {
   const handleSubmit = (e) => {
@@ -17,7 +18,17 @@ const PlantForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("response from db", data);
+        if (data.insertedId) {
+          console.log("response from db", data);
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Plant Added",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       });
   };
 
