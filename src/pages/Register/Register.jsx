@@ -9,16 +9,16 @@ import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, user, setUser, googleLogIn, updateUser, passwordRegex } =
-    use(AuthContext) || {};
+    use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  //   useTitle("Register - My App");
+  //   useTitle("Register - BotaNest");
 
   const [ShowPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (user) {
-      navigate(`${location.state ? location.state : "/profile"}`);
+      navigate(`${location.state ? location.state : "/"}`);
     }
   }, [user, navigate, location.state]);
 
@@ -60,7 +60,7 @@ const Register = () => {
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then(() => {
-        Swal.fire("Login with Google successful!");
+        Swal.fire("Google Login successful!");
       })
       .catch((error) => {
         console.log(error);

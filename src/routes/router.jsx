@@ -6,6 +6,8 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AddPlant from "../pages/AddPlant/AddPlant";
 import AllPlants from "../pages/AllPlants/AllPlants";
+import PrivateRoute from "../provider/PrivateRoute";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -17,15 +19,25 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
-      { path: "/login", Component: Login },
+
       { path: "/register", Component: Register },
+      { path: "/login", Component: Login },
+      { path: "/forgotPassword", Component: ForgotPassword },
       {
         path: "/addPlant",
-        Component: AddPlant,
+        element: (
+          <PrivateRoute>
+            <AddPlant></AddPlant>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allPlants",
-        Component: AllPlants,
+        element: (
+          <PrivateRoute>
+            <AllPlants />
+          </PrivateRoute>
+        ),
         loader: () =>
           fetch("https://a10-bota-nest-server-side.vercel.app/plants"),
 

@@ -6,7 +6,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 
 const Navbar = () => {
   const location = useLocation();
-  const { user, logOut } = use(AuthContext) || {};
+  const { user, logOut } = use(AuthContext);
 
   const handleLogout = () => {
     logOut()
@@ -104,7 +104,10 @@ const Navbar = () => {
               <Link to="/login" className="btn btn-outline btn-secondary">
                 Login
               </Link>
-              <Link to="/register" className="btn btn-outline btn-secondary">
+              <Link
+                to="/register"
+                className="btn btn-outline btn-secondary hidden md:flex"
+              >
                 Register
               </Link>
             </div>

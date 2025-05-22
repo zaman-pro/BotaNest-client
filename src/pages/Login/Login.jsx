@@ -7,7 +7,7 @@ import { AuthContext } from "../../provider/AuthContext";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { user, logIn, googleLogIn } = use(AuthContext) || {};
+  const { user, logIn, googleLogIn } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   //   useTitle("Login - BotaNest");
@@ -16,7 +16,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate(`${location.state ? location.state : "/profile"}`);
+      navigate(`${location.state ? location.state : "/"}`);
     }
   }, [user, navigate, location.state]);
 
@@ -44,7 +44,7 @@ const Login = () => {
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then(() => {
-        Swal.fire("Login with Google successful!");
+        Swal.fire("Google Login successful!");
       })
       .catch((error) => {
         console.log(error);
@@ -100,7 +100,7 @@ const Login = () => {
 
               <div>
                 <Link
-                  to="/forgot-password"
+                  to="/forgotPassword"
                   state={location.state}
                   className="link link-hover text-secondary"
                 >
