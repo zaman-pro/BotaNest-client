@@ -1,0 +1,81 @@
+import React from "react";
+import { useLoaderData } from "react-router";
+import useTitle from "../../utils/useTitle";
+import { FaCirclePlus } from "react-icons/fa6";
+
+const PlantDetails = () => {
+  const plant = useLoaderData();
+  useTitle(`${plant.plantName} - BotaNest`);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center px-3">
+      <div className="rounded-2xl shadow-lg lg:w-11/12 overflow-hidden">
+        <div className="flex justify-center p-3">
+          <div className="relative">
+            <img
+              src={plant.imageURL}
+              alt={plant.plantName}
+              className="w-40 h-40 object-contain rounded-2xl"
+            />
+            {/* <FaCirclePlus
+              size={28}
+              className="absolute right-1 top-1 -translate-y-1/2 translate-x-1/2 text-primary"
+            /> */}
+          </div>
+        </div>
+
+        <div className="p-3 md:p-6 text-center">
+          <h2 className="text-2xl font-bold text-green-700 mb-1">
+            {plant.plantName}
+          </h2>
+          <p className="text-sm text-gray-500 mb-4 italic">{plant.userEmail}</p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            <div className="bg-green-100 p-3 rounded-xl">
+              <p className="text-sm text-gray-700 font-semibold">Category</p>
+              <p className="text-sm">{plant.category}</p>
+            </div>
+            <div className="bg-green-100 p-3 rounded-xl">
+              <p className="text-sm text-gray-700 font-semibold">Care Level</p>
+              <p className="text-sm">{plant.careLevel}</p>
+            </div>
+            <div className="bg-green-100 p-3 rounded-xl">
+              <p className="text-sm text-gray-700 font-semibold">
+                Last Watered
+              </p>
+              <p className="text-sm">{plant.lastWatered}</p>
+            </div>
+            <div className="bg-green-100 p-3 rounded-xl">
+              <p className="text-sm text-gray-700 font-semibold">
+                Next Watering
+              </p>
+              <p className="text-sm">{plant.nextWatering}</p>
+            </div>
+            <div className="bg-green-100 p-3 rounded-xl">
+              <p className="text-sm text-gray-700 font-semibold">
+                Health Status
+              </p>
+              <p className="text-sm">{plant.nextWatering}</p>
+            </div>
+            <div className="bg-green-100 p-3 rounded-xl">
+              <p className="text-sm text-gray-700 font-semibold">
+                Watering Frequency
+              </p>
+              <p className="text-sm">{plant.nextWatering}</p>
+            </div>
+          </div>
+
+          <div className="bg-green-100 p-3 rounded-xl  mb-4">
+            <p className="text-gray-600 text-sm">{plant.description}</p>
+          </div>
+
+          {/* <button className="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+            Add To My Cart
+          </button> */}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PlantDetails;

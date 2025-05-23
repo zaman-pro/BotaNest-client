@@ -10,6 +10,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import MyPlants from "../pages/MyPlants/MyPlants";
 import Loading from "../pages/Loading/Loading";
+import PlantDetails from "../pages/PlantDetails/PlantDetails";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,19 @@ const router = createBrowserRouter([
             <MyPlants></MyPlants>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/plants/:id",
+        element: (
+          <PrivateRoute>
+            <PlantDetails></PlantDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://a10-bota-nest-server-side.vercel.app/plants/${params.id}`
+          ),
+        hydrateFallbackElement: <Loading></Loading>,
       },
     ],
   },

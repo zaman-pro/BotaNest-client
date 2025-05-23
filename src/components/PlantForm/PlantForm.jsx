@@ -72,9 +72,9 @@ const PlantForm = () => {
               defaultValue={"category"}
             >
               <option defaultValue="">Select Category</option>
-              <option value="succulent">Succulent</option>
-              <option value="fern">Fern</option>
-              <option value="flowering">Flowering</option>
+              <option value="Succulent">Succulent</option>
+              <option value="Fern">Fern</option>
+              <option value="Flowering">Flowering</option>
             </select>
           </fieldset>
 
@@ -86,9 +86,9 @@ const PlantForm = () => {
               required
             >
               <option defaultValue="">Select Care Level</option>
-              <option value="easy">Easy</option>
-              <option value="moderate">Moderate</option>
-              <option value="difficult">Difficult</option>
+              <option value="Easy">Easy</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Difficult">Difficult</option>
             </select>
           </fieldset>
 

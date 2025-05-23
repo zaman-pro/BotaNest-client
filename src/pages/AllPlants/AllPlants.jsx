@@ -42,7 +42,7 @@ const AllPlants = () => {
               <td className="hidden lg:table-cell">{plant.userName}</td>
               <td className="hidden lg:table-cell">{plant.userEmail}</td>
               <td>
-                <Link to={`/allPlants/${plant._id}`}>
+                <Link to={`/plants/${plant._id}`}>
                   <button className="btn btn-xs bg-secondary/90">
                     Details
                   </button>
