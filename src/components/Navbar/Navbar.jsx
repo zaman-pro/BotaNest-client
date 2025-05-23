@@ -83,7 +83,7 @@ const Navbar = () => {
           </button>
 
           {isOpen && (
-            <ul className="absolute left-0 z-10 mt-5 w-52 rounded-box bg-base-100 p-2 shadow menu menu-sm border">
+            <ul className="absolute left-0 z-10 mt-6 w-52 rounded-box bg-base-100 p-2 shadow menu menu-sm">
               {links}
             </ul>
           )}

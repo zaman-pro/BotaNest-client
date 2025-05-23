@@ -8,23 +8,17 @@ const PlantDetails = () => {
   useTitle(`${plant.plantName} - BotaNest`);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-3">
-      <div className="rounded-2xl shadow-lg lg:w-11/12 overflow-hidden">
+    <div className="min-h-screen px-3 mt-3">
+      <div className="rounded-2xl shadow-lg lg:w-11/12 mx-auto overflow-hidden">
         <div className="flex justify-center p-3">
-          <div className="relative">
-            <img
-              src={plant.imageURL}
-              alt={plant.plantName}
-              className="w-40 h-40 object-contain rounded-2xl"
-            />
-            {/* <FaCirclePlus
-              size={28}
-              className="absolute right-1 top-1 -translate-y-1/2 translate-x-1/2 text-primary"
-            /> */}
-          </div>
+          <img
+            src={plant.imageURL}
+            alt={plant.plantName}
+            className="w-40 h-40 object-contain rounded-2xl"
+          />
         </div>
 
-        <div className="p-3 md:p-6 text-center">
+        <div className="p-3 md:px-6 text-center">
           <h2 className="text-2xl font-bold text-green-700 mb-1">
             {plant.plantName}
           </h2>
