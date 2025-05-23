@@ -106,7 +106,7 @@ const Navbar = () => {
 
           {/* sun icon */}
           <svg
-            className="swap-on h-7 w-7 fill-current"
+            className="swap-on h-6 w-6 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -115,7 +115,7 @@ const Navbar = () => {
 
           {/* moon icon */}
           <svg
-            className="swap-off h-7 w-7 fill-current"
+            className="swap-off h-6 w-6 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -129,7 +129,7 @@ const Navbar = () => {
               className="tooltip tooltip-bottom"
               data-tip={user?.displayName || "Guest"}
             >
-              <div className="w-10 h-10 rounded-full overflow-hidden">
+              <div className="w-7 h-7 md:w-10 md:h-10 rounded-full overflow-hidden">
                 <img
                   src={
                     user?.photoURL ||
@@ -140,13 +140,12 @@ const Navbar = () => {
                 />
               </div>
             </div>
-            <button
-              onClick={handleLogout}
-              className="btn btn-outline btn-secondary"
-            >
-              <span className="hidden md:flex">Logout</span>
-              <FiLogOut className="md:hidden" />
-            </button>
+            <div onClick={handleLogout} className="text-secondary">
+              <button className="hidden md:flex btn btn-outline btn-secondary">
+                Logout
+              </button>
+              <FiLogOut size={25} className="md:hidden" />
+            </div>
           </>
         ) : (
           !["/login", "/register"].includes(location.pathname) && (
