@@ -31,10 +31,6 @@ const router = createBrowserRouter([
       {
         path: "/allPlants",
         Component: AllPlants,
-        loader: () =>
-          fetch("https://a10-bota-nest-server-side.vercel.app/plants"),
-
-        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/addPlant",
@@ -51,9 +47,6 @@ const router = createBrowserRouter([
             <MyPlants></MyPlants>
           </PrivateRoute>
         ),
-        loader: () =>
-          fetch("https://a10-bota-nest-server-side.vercel.app/plants"),
-        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/plants/:id",

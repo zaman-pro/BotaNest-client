@@ -1,25 +1,41 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import useTitle from "../../utils/useTitle";
 import { AuthContext } from "../../provider/AuthContext";
-import { Link, useLoaderData } from "react-router";
+import { Link } from "react-router";
 import PlantsTable from "../../components/PlantsTable/PlantsTable";
 import Swal from "sweetalert2";
+import Loading from "../Loading/Loading";
 
 const MyPlants = () => {
-  const { user } = use(AuthContext);
-  const initialPlants = useLoaderData();
+  const { user } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
+  const [sortBy, setSortBy] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const filtered = initialPlants.filter(
-      (plant) => plant?.userEmail?.toLowerCase() === user.email.toLowerCase()
-    );
-    setPlants(filtered);
-  }, [user, initialPlants]);
+    if (!user?.email) return;
 
-  // console.log("myPlants:", plants);
+    setLoading(true);
 
-  useTitle("My Plants - BotaNest");
+    const url = sortBy
+      ? `https://a10-bota-nest-server-side.vercel.app/plants?sortBy=${sortBy}`
+      : "https://a10-bota-nest-server-side.vercel.app/plants";
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        const filtered = data.filter(
+          (plant) => plant.userEmail.toLowerCase() === user.email.toLowerCase()
+        );
+        setPlants(filtered);
+      })
+      .catch((err) => console.error("Fetch error:", err))
+      .finally(() => setLoading(false));
+  }, [user, sortBy]);
+
+  useTitle(loading ? "Loading..." : "My Plants - BotaNest");
+
+  if (loading) return <Loading></Loading>;
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -45,24 +61,40 @@ const MyPlants = () => {
                 showConfirmButton: false,
               });
 
-              const remainigPlants = plants.filter((plant) => plant._id !== id);
-              setPlants(remainigPlants);
+              const remainingPlants = plants.filter(
+                (plant) => plant._id !== id
+              );
+              setPlants(remainingPlants);
             }
           });
       }
     });
   };
+
   return (
-    <div className="p-2 md:p-4 min-h-screen">
+    <div className="p-2 md:p-4">
       <h2 className="text-2xl font-bold mb-2 md:mb-6 text-center text-secondary">
         My Plants
       </h2>
 
-      {plants.length === 0 ? (
-        <div className=" flex flex-col items-center gap-5">
-          <p className="text-2xl text-gray-500">No plants added yet.</p>
+      <div className="mb-4 text-center">
+        <label className="mr-2 font-semibold">Sort By :</label>
+        <select
+          className="border p-1 rounded border-secondary/30"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option value="">Default</option>
+          <option value="careLevel">Care Level</option>
+          <option value="nextWatering">Next Watering</option>
+        </select>
+      </div>
 
-          <Link to="/addPlant" className="btn bg-secondary/90">
+      {plants.length === 0 ? (
+        <div className="flex flex-col items-center gap-5">
+          <p className="text-2xl text-gray-500">Add a plant to begin.</p>
+
+          <Link to="/addPlant" className="btn bg-secondary/90 text-white">
             Add Plant
           </Link>
         </div>

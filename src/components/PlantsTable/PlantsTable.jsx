@@ -12,8 +12,8 @@ const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
             <th>Plant Name</th>
             <th className="hidden lg:table-cell">Category</th>
             <th className="hidden md:table-cell">Watering Frequency</th>
-            <th className="hidden lg:table-cell">Username</th>
-            <th className="hidden lg:table-cell">Email</th>
+            <th className="hidden lg:table-cell">Care Level</th>
+            <th className="hidden lg:table-cell">Next Watering</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -37,8 +37,8 @@ const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
               <td className="hidden md:table-cell">
                 {plant.wateringFrequency}
               </td>
-              <td className="hidden lg:table-cell">{plant.userName}</td>
-              <td className="hidden lg:table-cell">{plant.userEmail}</td>
+              <td className="hidden lg:table-cell">{plant.careLevel}</td>
+              <td className="hidden lg:table-cell">{plant.nextWatering}</td>
               <td>
                 {isMyPlants ? (
                   <div className="flex flex-col gap-2">
