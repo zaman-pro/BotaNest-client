@@ -9,18 +9,13 @@ const MyPlants = () => {
   const [myPlants, setMyPlants] = useState([]);
 
   useEffect(() => {
-    // console.log("Logged in user email:", user?.email);
-    // console.log("Initial Plants:", initialPlants);
-
-    if (user?.email && Array.isArray(initialPlants)) {
-      const filtered = initialPlants.filter(
-        (plant) => plant?.userEmail.toLowerCase() === user.email.toLowerCase()
-      );
-      setMyPlants(filtered);
-    }
+    const filtered = initialPlants.filter(
+      (plant) => plant?.userEmail?.toLowerCase() === user.email.toLowerCase()
+    );
+    setMyPlants(filtered);
   }, [user, initialPlants]);
 
-  console.log("Updated myPlants:", myPlants);
+  console.log("myPlants:", myPlants);
 
   useTitle("My Plants - BotaNest");
   return (
@@ -30,13 +25,19 @@ const MyPlants = () => {
       </h2>
 
       {myPlants.length === 0 ? (
-        <p className="text-center text-gray-500">No plants added yet.</p>
+        <div className=" flex flex-col items-center gap-5">
+          <p className="text-2xl text-gray-500">No plants added yet.</p>
+
+          <Link to="/addPlant" className="btn bg-secondary/90">
+            Add Plant
+          </Link>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {myPlants.map((plant) => (
             <div
               key={plant._id}
-              className="p-4 rounded-xl shadow flex flex-col"
+              className="p-4 rounded-xl shadow flex flex-col hover:bg-accent/10"
             >
               <img
                 src={plant.imageURL}
@@ -51,15 +52,16 @@ const MyPlants = () => {
               </p>
 
               <div className="mt-auto flex justify-between gap-2">
-                <Link to={"/addPlant"}>
-                  <button className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm">
-                    Update
-                  </button>
+                <Link
+                  to={"/addPlant"}
+                  className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm"
+                >
+                  Update
                 </Link>
 
-                <button className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm">
+                <Link className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm">
                   Delete
-                </button>
+                </Link>
               </div>
             </div>
           ))}

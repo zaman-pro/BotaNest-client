@@ -1,37 +1,8 @@
-import React from "react";
-import Swal from "sweetalert2";
+import React, { use } from "react";
+import { AuthContext } from "../../provider/AuthContext";
 
-const PlantForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const plantData = Object.fromEntries(formData.entries());
-
-    // send plantData to the db
-    fetch("https://a10-bota-nest-server-side.vercel.app/plants", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(plantData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          console.log("response from db", data);
-
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Plant Added",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
-  };
-
+const PlantForm = ({ handleSubmit }) => {
+  const { user } = use(AuthContext);
   return (
     <div className="max-w-xl p-6 rounded-2xl shadow-md border border-secondary/30 my-4">
       <h2 className="text-3xl font-bold text-center text-secondary mb-6">
@@ -146,7 +117,7 @@ const PlantForm = () => {
               placeholder="User Email"
               className="input input-bordered w-full"
               required
-              defaultValue={"user@email"}
+              defaultValue={user.email}
             />
           </fieldset>
 
@@ -158,7 +129,7 @@ const PlantForm = () => {
               placeholder="User Name"
               className="input input-bordered w-full"
               required
-              defaultValue={"user_name"}
+              defaultValue={user.displayName || "Unknown"}
             />
           </fieldset>
         </div>
