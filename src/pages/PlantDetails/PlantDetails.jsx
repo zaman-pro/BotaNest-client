@@ -19,7 +19,7 @@ const PlantDetails = () => {
         </div>
 
         <div className="p-3 md:px-6 text-center">
-          <h2 className="text-2xl font-bold text-green-700 mb-1">
+          <h2 className="text-2xl font-bold text-secondary mb-1">
             {plant.plantName}
           </h2>
           <p className="text-sm text-gray-500 mb-4 italic">{plant.userEmail}</p>
@@ -63,7 +63,7 @@ const PlantDetails = () => {
             <p className="text-gray-600 text-sm">{plant.description}</p>
           </div>
 
-          {/* <button className="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+          {/* <button className="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-secondary transition">
             Add To My Cart
           </button> */}
         </div>

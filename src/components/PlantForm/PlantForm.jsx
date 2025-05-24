@@ -5,7 +5,7 @@ const PlantForm = ({ handleSubmit }) => {
   const { user } = use(AuthContext);
   return (
     <div className="max-w-xl p-6 rounded-2xl shadow-md border border-secondary/30 my-4">
-      <h2 className="text-3xl font-bold text-center text-secondary mb-6">
+      <h2 className="text-3xl font-bold mb-2 md:mb-6 text-center text-secondary">
         Add a New Plant
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">

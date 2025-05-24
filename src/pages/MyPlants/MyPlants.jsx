@@ -2,29 +2,30 @@ import React, { use, useEffect, useState } from "react";
 import useTitle from "../../utils/useTitle";
 import { AuthContext } from "../../provider/AuthContext";
 import { Link, useLoaderData } from "react-router";
+import PlantsTable from "../../components/PlantsTable/PlantsTable";
 
 const MyPlants = () => {
   const { user } = use(AuthContext);
   const initialPlants = useLoaderData();
-  const [myPlants, setMyPlants] = useState([]);
+  const [plants, setPlants] = useState([]);
 
   useEffect(() => {
     const filtered = initialPlants.filter(
       (plant) => plant?.userEmail?.toLowerCase() === user.email.toLowerCase()
     );
-    setMyPlants(filtered);
+    setPlants(filtered);
   }, [user, initialPlants]);
 
-  console.log("myPlants:", myPlants);
+  console.log("myPlants:", plants);
 
   useTitle("My Plants - BotaNest");
   return (
-    <div className="p-6 min-h-screen">
-      <h2 className="text-2xl font-bold mb-6 text-center text-green-700">
+    <div className="p-2 md:p-4 min-h-screen">
+      <h2 className="text-2xl font-bold mb-2 md:mb-6 text-center text-secondary">
         My Plants
       </h2>
 
-      {myPlants.length === 0 ? (
+      {plants.length === 0 ? (
         <div className=" flex flex-col items-center gap-5">
           <p className="text-2xl text-gray-500">No plants added yet.</p>
 
@@ -33,39 +34,7 @@ const MyPlants = () => {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {myPlants.map((plant) => (
-            <div
-              key={plant._id}
-              className="p-4 rounded-xl shadow flex flex-col hover:bg-accent/10"
-            >
-              <img
-                src={plant.imageURL}
-                alt={plant.plantName}
-                className="h-40 object-contain rounded-md mb-4"
-              />
-              <h3 className="text-lg font-bold text-green-700">
-                {plant.plantName}
-              </h3>
-              <p className="text-sm text-gray-500 mb-2">
-                {plant.wateringFrequency}
-              </p>
-
-              <div className="mt-auto flex justify-between gap-2">
-                <Link
-                  to={"/addPlant"}
-                  className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm"
-                >
-                  Update
-                </Link>
-
-                <Link className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm">
-                  Delete
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+        <PlantsTable plants={plants} isMyPlants={true}></PlantsTable>
       )}
     </div>
   );
