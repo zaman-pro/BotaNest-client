@@ -36,13 +36,17 @@ const PlantDetails = () => {
               <p className="text-sm text-gray-700 font-semibold">
                 Last Watered
               </p>
-              <p className="text-sm text-gray-600">{plant.lastWatered}</p>
+              <p className="text-sm text-gray-600">
+                {plant.lastWatered?.split("T")[0]}
+              </p>
             </div>
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Next Watering
               </p>
-              <p className="text-sm text-gray-600">{plant.nextWatering}</p>
+              <p className="text-sm text-gray-600">
+                {plant.nextWatering?.split("T")[0]}
+              </p>
             </div>
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
@@ -58,7 +62,7 @@ const PlantDetails = () => {
             </div>
           </div>
 
-          <div className="bg-green-100 p-3 rounded-xl  mb-4">
+          <div className="bg-green-100 p-3 rounded-xl mb-4">
             <p className="text-gray-600 text-sm">{plant.description}</p>
           </div>
         </div>

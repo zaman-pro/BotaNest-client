@@ -77,19 +77,6 @@ const MyPlants = () => {
         My Plants
       </h2>
 
-      <div className="mb-4 text-center">
-        <label className="mr-2 font-semibold">Sort By :</label>
-        <select
-          className="border p-1 rounded border-secondary/30"
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-        >
-          <option value="">Default</option>
-          <option value="careLevel">Care Level</option>
-          <option value="nextWatering">Next Watering</option>
-        </select>
-      </div>
-
       {plants.length === 0 ? (
         <div className="flex flex-col items-center gap-5">
           <p className="text-2xl text-gray-500">Add a plant to begin.</p>
@@ -99,11 +86,26 @@ const MyPlants = () => {
           </Link>
         </div>
       ) : (
-        <PlantsTable
-          plants={plants}
-          isMyPlants={true}
-          handleDelete={handleDelete}
-        ></PlantsTable>
+        <>
+          <div className="mb-4 text-center">
+            <label className="mr-2 font-semibold">Sort By :</label>
+            <select
+              className="border p-1 rounded border-secondary/30"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="">Default</option>
+              <option value="careLevel">Care Level</option>
+              <option value="nextWatering">Next Watering</option>
+            </select>
+          </div>
+
+          <PlantsTable
+            plants={plants}
+            isMyPlants={true}
+            handleDelete={handleDelete}
+          ></PlantsTable>
+        </>
       )}
     </div>
   );

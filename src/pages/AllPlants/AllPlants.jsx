@@ -22,7 +22,7 @@ const AllPlants = () => {
       .finally(() => setLoading(false));
   }, [sortBy]);
 
-  useTitle(loading ? "Loading..." : "My Plants - BotaNest");
+  useTitle(loading ? "Loading..." : "All Plants - BotaNest");
 
   if (loading) return <Loading></Loading>;
 

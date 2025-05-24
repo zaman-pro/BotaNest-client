@@ -38,7 +38,9 @@ const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
                 {plant.wateringFrequency}
               </td>
               <td className="hidden lg:table-cell">{plant.careLevel}</td>
-              <td className="hidden lg:table-cell">{plant.nextWatering}</td>
+              <td className="hidden lg:table-cell">
+                {plant.nextWatering?.split("T")[0]}
+              </td>
               <td>
                 {isMyPlants ? (
                   <div className="flex flex-col gap-2">
