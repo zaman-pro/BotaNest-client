@@ -22,11 +22,21 @@ const Navbar = () => {
   const handleLogout = () => {
     logOut()
       .then(() => {
-        Swal.fire("Logout successful!");
+        Swal.fire({
+          title: "Logout successful!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       })
       .catch((error) => {
         console.log(error);
-        Swal.fire("Something is wrong.");
+        Swal.fire({
+          title: "Something is wrong.",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       });
   };
 

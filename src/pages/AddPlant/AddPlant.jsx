@@ -26,11 +26,10 @@ const AddPlant = () => {
           console.log("response from db", data);
 
           Swal.fire({
-            position: "center",
-            icon: "success",
             title: "Plant Added",
-            showConfirmButton: false,
+            icon: "success",
             timer: 1500,
+            showConfirmButton: false,
           });
         }
       });

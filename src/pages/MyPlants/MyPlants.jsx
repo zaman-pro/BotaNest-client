@@ -3,6 +3,7 @@ import useTitle from "../../utils/useTitle";
 import { AuthContext } from "../../provider/AuthContext";
 import { Link, useLoaderData } from "react-router";
 import PlantsTable from "../../components/PlantsTable/PlantsTable";
+import Swal from "sweetalert2";
 
 const MyPlants = () => {
   const { user } = use(AuthContext);
@@ -16,9 +17,42 @@ const MyPlants = () => {
     setPlants(filtered);
   }, [user, initialPlants]);
 
-  console.log("myPlants:", plants);
+  // console.log("myPlants:", plants);
 
   useTitle("My Plants - BotaNest");
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      // text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://a10-bota-nest-server-side.vercel.app/plants/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your plant has been deleted.",
+                icon: "success",
+                timer: 1500,
+                showConfirmButton: false,
+              });
+
+              const remainigPlants = plants.filter((plant) => plant._id !== id);
+              setPlants(remainigPlants);
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="p-2 md:p-4 min-h-screen">
       <h2 className="text-2xl font-bold mb-2 md:mb-6 text-center text-secondary">
@@ -34,7 +68,11 @@ const MyPlants = () => {
           </Link>
         </div>
       ) : (
-        <PlantsTable plants={plants} isMyPlants={true}></PlantsTable>
+        <PlantsTable
+          plants={plants}
+          isMyPlants={true}
+          handleDelete={handleDelete}
+        ></PlantsTable>
       )}
     </div>
   );

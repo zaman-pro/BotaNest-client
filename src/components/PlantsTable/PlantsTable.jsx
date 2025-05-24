@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
 
-const PlantsTable = ({ plants, isMyPlants }) => {
-  console.log(isMyPlants);
+const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
+  //   console.log(isMyPlants);
   return (
     <div>
       <table className="table w-full text-sm md:text-base">
@@ -49,7 +49,10 @@ const PlantsTable = ({ plants, isMyPlants }) => {
                       Update
                     </Link>
 
-                    <Link className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-center">
+                    <Link
+                      onClick={() => handleDelete(plant._id)}
+                      className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-center"
+                    >
                       Delete
                     </Link>
                   </div>

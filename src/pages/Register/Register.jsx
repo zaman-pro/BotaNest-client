@@ -42,17 +42,34 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            Swal.fire("Register successful!");
+
+            Swal.fire({
+              title: "Register successful!",
+              icon: "success",
+              timer: 1500,
+              showConfirmButton: false,
+            });
           })
           .catch((error) => {
             console.log(error);
             setUser(user);
-            Swal.fire("Profile update failed. Please try again.");
+            Swal.fire({
+              title: "Profile update failed. Please try again.",
+              icon: "question",
+              timer: 1500,
+              showConfirmButton: false,
+            });
           });
       })
       .catch((error) => {
         console.log(error);
-        Swal.fire(error.message || "Registration failed. Please try again.");
+
+        Swal.fire({
+          title: "Registration failed.",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       });
   };
 

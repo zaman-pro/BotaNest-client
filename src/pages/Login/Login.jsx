@@ -33,11 +33,22 @@ const Login = () => {
 
     logIn(email, password)
       .then(() => {
-        Swal.fire("Login successful!");
+        Swal.fire({
+          title: "Login successful!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       })
       .catch((error) => {
         console.log(error);
-        Swal.fire("Please check your credentials.");
+
+        Swal.fire({
+          title: "Please check your credentials.",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       });
   };
 
