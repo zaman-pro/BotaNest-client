@@ -14,12 +14,22 @@ const ForgotPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email) {
-      Swal.fire("Please enter your email.");
+      Swal.fire({
+        title: "Please enter your email.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
       return;
     }
     resetPassword(email)
       .then(() => {
-        Swal.fire("Check your inbox for reset link!");
+        Swal.fire({
+          title: "Check your inbox for reset link!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
         navigate("/");
       })
       .catch((err) => {

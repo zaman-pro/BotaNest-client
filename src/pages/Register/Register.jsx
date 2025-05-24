@@ -30,9 +30,13 @@ const Register = () => {
     const password = form.password.value;
 
     if (!passwordRegex.test(password)) {
-      Swal.fire(
-        "Password must be at least 6 characters and include both uppercase and lowercase letters."
-      );
+      Swal.fire({
+        title:
+          "Password must be at least 6 characters and include both uppercase and lowercase letters.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+      });
       return;
     }
 
@@ -76,11 +80,21 @@ const Register = () => {
   const handleGoogleLogIn = () => {
     googleLogIn()
       .then(() => {
-        Swal.fire("Google Login successful!");
+        Swal.fire({
+          title: "Google Login successful!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       })
       .catch((error) => {
         console.log(error);
-        Swal.fire("Google login failed. Please try again.");
+        Swal.fire({
+          title: "Google login failed. Please try again.",
+          icon: "error",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       });
   };
 

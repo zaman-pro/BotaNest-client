@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const AddPlant = () => {
   useTitle("Add Plant - BotaNest");
 
-  const handleSubmit = (e) => {
+  const handleAddPlant = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
@@ -23,7 +23,7 @@ const AddPlant = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log("response from db", data);
+          // console.log("response from db", data);
 
           Swal.fire({
             title: "Plant Added",
@@ -37,7 +37,7 @@ const AddPlant = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <AddPlantForm handleSubmit={handleSubmit} />
+      <AddPlantForm handleAddPlant={handleAddPlant} />
     </div>
   );
 };

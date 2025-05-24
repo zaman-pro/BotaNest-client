@@ -1,14 +1,14 @@
 import React, { use } from "react";
 import { AuthContext } from "../../provider/AuthContext";
 
-const PlantForm = ({ handleSubmit }) => {
+const PlantForm = ({ handleAddPlant }) => {
   const { user } = use(AuthContext);
   return (
     <div className="max-w-xl p-6 rounded-2xl shadow-md border border-secondary/30 my-4">
       <h2 className="text-3xl font-bold mb-2 md:mb-6 text-center text-secondary">
         Add a New Plant
       </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleAddPlant} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Image</label>
