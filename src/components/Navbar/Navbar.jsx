@@ -6,6 +6,7 @@ import { FaBars, FaXmark } from "react-icons/fa6";
 import { FiLogOut } from "react-icons/fi";
 import { themeChange } from "theme-change";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const location = useLocation();
@@ -136,20 +137,21 @@ const Navbar = () => {
         {user ? (
           <>
             <div
-              className="tooltip tooltip-bottom"
-              data-tip={user?.displayName || "Guest"}
+              data-tooltip-id="user-tooltip"
+              data-tooltip-content={user?.displayName || "Guest"}
+              className="w-7 h-7 md:w-10 md:h-10 rounded-full overflow-hidden cursor-pointer"
             >
-              <div className="w-7 h-7 md:w-10 md:h-10 rounded-full overflow-hidden">
-                <img
-                  src={
-                    user?.photoURL ||
-                    "https://i.ibb.co.com/Cs13Xyvv/icons8-avatar-96.png"
-                  }
-                  className="w-full h-full object-cover"
-                  alt="User Avatar"
-                />
-              </div>
+              <img
+                src={
+                  user?.photoURL ||
+                  "https://i.ibb.co.com/Cs13Xyvv/icons8-avatar-96.png"
+                }
+                className="w-full h-full object-cover"
+                alt="User Avatar"
+              />
             </div>
+            <Tooltip id="user-tooltip" place="bottom" />
+
             <div onClick={handleLogout} className="text-secondary">
               <button className="hidden md:flex btn btn-outline btn-secondary">
                 Logout
