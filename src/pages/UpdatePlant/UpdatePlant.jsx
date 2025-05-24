@@ -1,19 +1,22 @@
 import React from "react";
-import PlantForm from "../../components/PlantForm/PlantForm";
-import useTitle from "../../utils/useTitle";
 import Swal from "sweetalert2";
+import PlantForm from "../../components/PlantForm/PlantForm";
+import { useLoaderData } from "react-router";
+import useTitle from "../../utils/useTitle";
 
-const AddPlant = () => {
-  useTitle("Add Plant - BotaNest");
+const UpdatePlant = () => {
+  useTitle("Update Plant - BotaNest");
 
-  const handleAddPlant = (e) => {
+  const plant = useLoaderData();
+
+  const handleUpdatePlant = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const plantData = Object.fromEntries(formData.entries());
 
-    fetch("https://a10-bota-nest-server-side.vercel.app/plants", {
-      method: "POST",
+    fetch(`https://a10-bota-nest-server-side.vercel.app/plants/${plant._id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -21,9 +24,9 @@ const AddPlant = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
+        if (data.modifiedCount) {
           Swal.fire({
-            title: "Plant Added",
+            title: "Plant Updated",
             icon: "success",
             timer: 1500,
             showConfirmButton: false,
@@ -31,12 +34,15 @@ const AddPlant = () => {
         }
       });
   };
-
   return (
     <div className="min-h-screen px-3 mt-3">
-      <PlantForm handleAddPlant={handleAddPlant} />
+      <PlantForm
+        plant={plant}
+        handleUpdatePlant={handleUpdatePlant}
+        isUpdatePlant={true}
+      />
     </div>
   );
 };
 
-export default AddPlant;
+export default UpdatePlant;

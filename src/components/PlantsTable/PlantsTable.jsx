@@ -19,7 +19,7 @@ const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
         </thead>
         <tbody>
           {plants.map((plant, index) => (
-            <tr key={plant._id} className="hover">
+            <tr key={plant._id} className="hover:bg-accent/10">
               <td>{index + 1}</td>
               <td>
                 <div className="flex items-center gap-3">
@@ -43,22 +43,22 @@ const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
                 {isMyPlants ? (
                   <div className="flex flex-col gap-2">
                     <Link
-                      to={"/addPlant"}
-                      className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-center"
+                      to={`/updatePlant/${plant._id}`}
+                      className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-center text-white"
                     >
                       Update
                     </Link>
 
                     <Link
                       onClick={() => handleDelete(plant._id)}
-                      className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-center"
+                      className="bg-red-500 px-3 py-1 rounded hover:bg-accent text-sm text-center text-white"
                     >
                       Delete
                     </Link>
                   </div>
                 ) : (
                   <Link
-                    className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm"
+                    className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-white"
                     to={`/plants/${plant._id}`}
                   >
                     Details

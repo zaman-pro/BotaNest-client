@@ -1,7 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router";
 import useTitle from "../../utils/useTitle";
-import { FaCirclePlus } from "react-icons/fa6";
 
 const PlantDetails = () => {
   const plant = useLoaderData();
@@ -27,45 +26,41 @@ const PlantDetails = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">Category</p>
-              <p className="text-sm">{plant.category}</p>
+              <p className="text-sm text-gray-600">{plant.category}</p>
             </div>
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">Care Level</p>
-              <p className="text-sm">{plant.careLevel}</p>
+              <p className="text-sm text-gray-600">{plant.careLevel}</p>
             </div>
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Last Watered
               </p>
-              <p className="text-sm">{plant.lastWatered}</p>
+              <p className="text-sm text-gray-600">{plant.lastWatered}</p>
             </div>
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Next Watering
               </p>
-              <p className="text-sm">{plant.nextWatering}</p>
+              <p className="text-sm text-gray-600">{plant.nextWatering}</p>
             </div>
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Health Status
               </p>
-              <p className="text-sm">{plant.nextWatering}</p>
+              <p className="text-sm text-gray-600">{plant.healthStatus}</p>
             </div>
             <div className="bg-green-100 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Watering Frequency
               </p>
-              <p className="text-sm">{plant.nextWatering}</p>
+              <p className="text-sm text-gray-600">{plant.wateringFrequency}</p>
             </div>
           </div>
 
           <div className="bg-green-100 p-3 rounded-xl  mb-4">
             <p className="text-gray-600 text-sm">{plant.description}</p>
           </div>
-
-          {/* <button className="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-secondary transition">
-            Add To My Cart
-          </button> */}
         </div>
       </div>
     </div>

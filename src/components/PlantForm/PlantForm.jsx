@@ -1,14 +1,28 @@
 import React, { use } from "react";
 import { AuthContext } from "../../provider/AuthContext";
 
-const PlantForm = ({ handleAddPlant }) => {
+const PlantForm = ({
+  plant,
+  handleAddPlant,
+  isUpdatePlant,
+  handleUpdatePlant,
+}) => {
   const { user } = use(AuthContext);
   return (
-    <div className="max-w-xl p-6 rounded-2xl shadow-md border border-secondary/30 my-4">
-      <h2 className="text-3xl font-bold mb-2 md:mb-6 text-center text-secondary">
-        Add a New Plant
-      </h2>
-      <form onSubmit={handleAddPlant} className="space-y-4">
+    <div className="p-3 rounded-2xl border border-secondary/30 shadow-lg lg:w-11/12 mx-auto overflow-hidden">
+      {isUpdatePlant ? (
+        <h2 className="text-3xl font-bold mb-2 md:mb-6 text-center text-secondary">
+          Update Plant
+        </h2>
+      ) : (
+        <h2 className="text-3xl font-bold mb-2 md:mb-6 text-center text-secondary">
+          Add New Plant
+        </h2>
+      )}
+      <form
+        onSubmit={isUpdatePlant ? handleUpdatePlant : handleAddPlant}
+        className="space-y-4"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <fieldset className="fieldset">
             <label className="label text-xs font-semibold">Image</label>
@@ -18,7 +32,7 @@ const PlantForm = ({ handleAddPlant }) => {
               placeholder="Image URL"
               className="input input-bordered w-full"
               required
-              defaultValue={"imageURL"}
+              defaultValue={plant?.imageURL}
             />
           </fieldset>
 
@@ -30,7 +44,7 @@ const PlantForm = ({ handleAddPlant }) => {
               placeholder="Plant Name"
               className="input input-bordered w-full"
               required
-              defaultValue={"plantName"}
+              defaultValue={plant?.plantName}
             />
           </fieldset>
 
@@ -42,7 +56,7 @@ const PlantForm = ({ handleAddPlant }) => {
               required
               defaultValue={"category"}
             >
-              <option defaultValue="">Select Category</option>
+              <option defaultValue="">{plant?.category}</option>
               <option value="Succulent">Succulent</option>
               <option value="Fern">Fern</option>
               <option value="Flowering">Flowering</option>
@@ -56,7 +70,7 @@ const PlantForm = ({ handleAddPlant }) => {
               className="select select-bordered w-full"
               required
             >
-              <option defaultValue="">Select Care Level</option>
+              <option defaultValue="">{plant?.careLevel}</option>
               <option value="Easy">Easy</option>
               <option value="Moderate">Moderate</option>
               <option value="Difficult">Difficult</option>
@@ -69,6 +83,7 @@ const PlantForm = ({ handleAddPlant }) => {
               type="date"
               name="lastWatered"
               className="input input-bordered w-full"
+              defaultValue={plant?.lastWatered}
               required
             />
           </fieldset>
@@ -79,6 +94,7 @@ const PlantForm = ({ handleAddPlant }) => {
               type="date"
               name="nextWatering"
               className="input input-bordered w-full"
+              defaultValue={plant?.nextWatering}
               required
             />
           </fieldset>
@@ -91,7 +107,7 @@ const PlantForm = ({ handleAddPlant }) => {
               placeholder="Health Status"
               className="input input-bordered w-full"
               required
-              defaultValue={"healthStatus"}
+              defaultValue={plant?.healthStatus}
             />
           </fieldset>
 
@@ -105,7 +121,7 @@ const PlantForm = ({ handleAddPlant }) => {
               placeholder="e.g., every 3 days"
               className="input input-bordered w-full"
               required
-              defaultValue={"wateringFrequency"}
+              defaultValue={plant?.wateringFrequency}
             />
           </fieldset>
 
@@ -117,7 +133,7 @@ const PlantForm = ({ handleAddPlant }) => {
               placeholder="User Email"
               className="input input-bordered w-full"
               required
-              defaultValue={user.email}
+              defaultValue={user?.email}
             />
           </fieldset>
 
@@ -129,7 +145,7 @@ const PlantForm = ({ handleAddPlant }) => {
               placeholder="User Name"
               className="input input-bordered w-full"
               required
-              defaultValue={user.displayName || "Unknown"}
+              defaultValue={user?.displayName || "Unknown"}
             />
           </fieldset>
         </div>
@@ -141,12 +157,12 @@ const PlantForm = ({ handleAddPlant }) => {
             placeholder="Description"
             className="textarea textarea-bordered w-full"
             required
-            defaultValue={"Description"}
+            defaultValue={plant?.description}
           />
         </fieldset>
 
-        <button type="submit" className="btn bg-secondary/90 w-full">
-          Add Plant
+        <button type="submit" className="btn bg-secondary/90 text-white w-full">
+          {isUpdatePlant ? "Update Plant" : "Add Plant"}
         </button>
       </form>
     </div>

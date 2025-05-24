@@ -11,6 +11,7 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import MyPlants from "../pages/MyPlants/MyPlants";
 import Loading from "../pages/Loading/Loading";
 import PlantDetails from "../pages/PlantDetails/PlantDetails";
+import UpdatePlant from "../pages/UpdatePlant/UpdatePlant";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,19 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <PlantDetails></PlantDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://a10-bota-nest-server-side.vercel.app/plants/${params.id}`
+          ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/updatePlant/:id",
+        element: (
+          <PrivateRoute>
+            <UpdatePlant></UpdatePlant>
           </PrivateRoute>
         ),
         loader: ({ params }) =>
