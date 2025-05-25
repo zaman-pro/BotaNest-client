@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="text-center py-10 px-4 text-accent space-y-5">
       <div>
-        <h1 className="text-2xl font-bold text-secondary flex justify-center items-center gap-1 italic">
+        <h1 className="text-2xl font-bold text-secondary flex justify-center items-center gap-1">
           BotaNest
         </h1>
         <p className="mt-1 text-sm text-accent">Smart Care for Every Leaf</p>

@@ -30,7 +30,7 @@ const Home = () => {
       <Slider title="Plant Varieties" plants={plants} />
 
       <section>
-        <h2 className="text-2xl font-bold mb-6 text-green-800 text-center">
+        <h2 className="text-2xl font-bold mb-6 text-secondary text-center">
           New Plants
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -48,7 +48,7 @@ const Home = () => {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-green-800 text-center md:text-left">
+            <h2 className="text-2xl font-bold mb-4 text-secondary text-center md:text-left">
               Seasonal Planting
             </h2>
             <p className="mb-4">
@@ -69,7 +69,7 @@ const Home = () => {
       <section className="bg-base-200 md:py-10 p-5 md:px-12 rounded-xl">
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-8">
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-green-800 text-center md:text-left">
+            <h2 className="text-2xl font-bold mb-4 text-secondary text-center md:text-left">
               Indoor Lighting Tips
             </h2>
             <p className="mb-2">

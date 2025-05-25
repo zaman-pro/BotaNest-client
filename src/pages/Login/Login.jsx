@@ -89,7 +89,7 @@ const Login = () => {
       <div className="w-full md:w-1/2 flex items-center justify-center p-4">
         <div className="card w-full max-w-xl py-5 border-2 border-secondary/30 rounded-xl">
           <h1 className="text-3xl font-bold text-center">
-            Login to <span className="text-secondary italic">BotaNest</span>
+            Login to <span className="text-secondary">BotaNest</span>
           </h1>
           <form onSubmit={handleLogin} className="card-body">
             <fieldset className="fieldset">

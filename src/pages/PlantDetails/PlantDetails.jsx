@@ -18,21 +18,21 @@ const PlantDetails = () => {
         </div>
 
         <div className="p-3 md:px-6 text-center">
-          <h2 className="text-2xl font-bold text-secondary mb-1">
+          <h2 className="text-2xl font-bold text-accent mb-1">
             {plant.plantName}
           </h2>
           <p className="text-sm text-gray-500 mb-4 italic">{plant.userEmail}</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-            <div className="bg-green-100 p-3 rounded-xl">
+            <div className="bg-green-50 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">Category</p>
               <p className="text-sm text-gray-600">{plant.category}</p>
             </div>
-            <div className="bg-green-100 p-3 rounded-xl">
+            <div className="bg-green-50 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">Care Level</p>
               <p className="text-sm text-gray-600">{plant.careLevel}</p>
             </div>
-            <div className="bg-green-100 p-3 rounded-xl">
+            <div className="bg-green-50 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Last Watered
               </p>
@@ -40,7 +40,7 @@ const PlantDetails = () => {
                 {plant.lastWatered?.split("T")[0]}
               </p>
             </div>
-            <div className="bg-green-100 p-3 rounded-xl">
+            <div className="bg-green-50 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Next Watering
               </p>
@@ -48,13 +48,13 @@ const PlantDetails = () => {
                 {plant.nextWatering?.split("T")[0]}
               </p>
             </div>
-            <div className="bg-green-100 p-3 rounded-xl">
+            <div className="bg-green-50 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Health Status
               </p>
               <p className="text-sm text-gray-600">{plant.healthStatus}</p>
             </div>
-            <div className="bg-green-100 p-3 rounded-xl">
+            <div className="bg-green-50 p-3 rounded-xl">
               <p className="text-sm text-gray-700 font-semibold">
                 Watering Frequency
               </p>
@@ -62,7 +62,7 @@ const PlantDetails = () => {
             </div>
           </div>
 
-          <div className="bg-green-100 p-3 rounded-xl mb-4">
+          <div className="bg-green-50 p-3 rounded-xl mb-4">
             <p className="text-gray-600 text-sm">{plant.description}</p>
           </div>
         </div>

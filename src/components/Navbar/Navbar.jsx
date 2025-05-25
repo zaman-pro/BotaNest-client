@@ -106,7 +106,7 @@ const Navbar = () => {
             src="https://images2.imgbox.com/d5/64/82KFidmi_o.png"
             alt="Logo"
           />
-          <span className="hidden md:flex text-3xl italic font-bold text-secondary">
+          <span className="hidden md:flex text-3xl font-bold text-secondary">
             BotaNest
           </span>
         </Link>

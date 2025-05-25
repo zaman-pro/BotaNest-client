@@ -29,7 +29,7 @@ const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
                     </div>
                   </div>
                   <Link to={`/plants/${plant._id}`}>
-                    <h1 className="font-bold">{plant.plantName}</h1>
+                    <h1 className="font-bold text-accent">{plant.plantName}</h1>
                   </Link>
                 </div>
               </td>

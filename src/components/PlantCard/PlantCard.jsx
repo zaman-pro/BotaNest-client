@@ -34,7 +34,7 @@ const PlantCard = ({ plant, isSlider }) => {
             alt={plantName}
           />
           <div className="flex-grow">
-            <h3 className="text-lg font-bold">{plantName}</h3>
+            <h3 className="text-lg font-bold text-accent">{plantName}</h3>
             <p className="text-sm">
               {category} • {careLevel}
             </p>
