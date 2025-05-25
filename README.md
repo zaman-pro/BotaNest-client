@@ -1,12 +1,42 @@
-# React + Vite
+# BotaNest - Plant Care Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Website:** [Visit BotaNest](https://b11a10-botanest-zaman-pro.web.app/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview
 
-## Expanding the ESLint configuration
+BotaNest is a full-stack, mobile-responsive plant care tracking web application built for plant lovers to manage and monitor the health of their indoor and outdoor plants. It offers personalized dashboards where users can add, update, and track plant care tasks such as watering schedules, care level, and health status.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Project Purpose
+
+- To help plant enthusiasts efficiently manage their plant care routines with a digital assistant.
+- To reduce plant neglect or overcare by providing reminders and tracking tools.
+- To offer a centralized platform for logging plant information and observing growth trends.
+- To create a fun, personalized experience for users who enjoy organizing and caring for their plants.
+- To explore and implement modern full-stack development practices in a real-world project scenario.
+
+---
+
+## Key Features
+
+- User Authentication: Secure login and registration using Email/Password and Google/GitHub. Conditional routing and protected routes are implemented for personalized access.
+- Plant Management Dashboard: Users can add, update, view, and delete their plant records including watering schedules, care level, and health status.
+- Smart Reminders & Sort Options: Users can sort plants by next watering date or care level to better plan their plant care routine.
+- Theme Toggle: Users can switch between light and dark mode to enhance the viewing experience.
+- Responsive Design & Creative UI: Designed for mobile, tablet, and desktop with a succulent-themed aesthetic and visually appealing components.
+
+---
+
+## Technologies Used
+
+- React, React Router, Tailwind CSS, DaisyUI
+- Node.js, Express.js, MongoDB
+- Firebase Authentication
+- Lottie React, React Tooltip, SweetAlert2, Swiper, React Icons
+
+---
+
+Feel free to explore, fork, or contribute!
