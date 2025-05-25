@@ -137,7 +137,7 @@ const Login = () => {
                 Login
               </button>
 
-              <p className="text-center font-bold text-primary/60">Or</p>
+              <p className="text-center font-bold text-primary">Or</p>
               <button
                 type="button"
                 onClick={handleGoogleLogIn}
@@ -148,12 +148,12 @@ const Login = () => {
               </button>
             </fieldset>
 
-            <p className="font-medium text-center text-accent">
+            <p className="font-medium text-center text-secondary/90">
               Don't have an account?{" "}
               <Link
                 state={location.state}
                 to="/register"
-                className="text-secondary"
+                className="text-primary"
               >
                 Register
               </Link>

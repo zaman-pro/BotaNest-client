@@ -34,17 +34,28 @@ const PlantCard = ({ plant, isSlider }) => {
             alt={plantName}
           />
           <div className="flex-grow">
-            <h3 className="text-lg font-bold text-accent">{plantName}</h3>
-            <p className="text-sm">
-              {category} • {careLevel}
-            </p>
-            {!isSlider && (
-              <div className="flex gap-2 mt-1 text-sm flex-wrap">
-                <span>{wateringFrequency}</span>
-                <span> • </span>
-                <span>{healthStatus}</span>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+              <div>
+                <h3 className="text-lg font-bold text-accent">{plantName}</h3>
+                <p className="text-sm">
+                  {category} • {careLevel}
+                </p>
+                {!isSlider && (
+                  <div className="flex gap-2 mt-1 text-sm flex-wrap">
+                    <span>{wateringFrequency}</span>
+                    <span> • </span>
+                    <span>{healthStatus}</span>
+                  </div>
+                )}
               </div>
-            )}
+              <button
+                className="bg-secondary/80 px-3 py-1 rounded hover:bg-accent text-sm text-white text-center w-fit"
+                to={`/plants/${_id}`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                Details
+              </button>
+            </div>
           </div>
         </div>
       </div>

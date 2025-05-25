@@ -33,7 +33,7 @@ const Register = () => {
       Swal.fire({
         title:
           "Password must be at least 6 characters and include both uppercase and lowercase letters.",
-        icon: "success",
+        icon: "error",
         timer: 1500,
         showConfirmButton: false,
       });
@@ -178,9 +178,9 @@ const Register = () => {
                 Login with Google
               </button>
             </fieldset>
-            <p className="font-medium text-center text-accent">
+            <p className="font-medium text-center text-secondary/90">
               Already have an account?{" "}
-              <Link className="text-secondary" to="/login">
+              <Link className="text-primary" to="/login">
                 Login
               </Link>
             </p>
