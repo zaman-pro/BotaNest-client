@@ -16,7 +16,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="pt-4 space-y-5 md:space-y-10 lg:px-10">
+    <div className="p-4 space-y-5 md:space-y-10 lg:px-10">
       {/* Banner/Slider */}
 
       <Slider title="Plant Varieties" plants={plants} />

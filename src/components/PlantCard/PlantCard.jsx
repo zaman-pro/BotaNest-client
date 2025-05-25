@@ -16,17 +16,15 @@ const PlantCard = ({ plant, isSlider }) => {
   return (
     <Link to={`/plants/${_id}`}>
       <div
-        className={`p-2 md:p-5 rounded-lg hover:bg-accent/10 transition duration-200 ${
-          isSlider
-            ? "min-w-[250px] lg:min-w-[400px] flex-shrink-0 bg-secondary/10"
-            : "w-full bg-base-200"
+        className={`p-2 md:p-5 rounded-lg transition duration-200 ${
+          isSlider ? "bg-accent/10" : "w-full bg-base-200"
         }`}
       >
         <img
           src={imageURL}
           alt={plantName}
           className={`w-full ${
-            isSlider ? "md:h-70 mb-2" : "hidden"
+            isSlider ? "mb-2" : "hidden"
           } object-contain rounded-lg md:flex`}
         />
         <div className="flex items-center gap-4 md:mt-4">
@@ -40,11 +38,13 @@ const PlantCard = ({ plant, isSlider }) => {
             <p className="text-sm">
               {category} • {careLevel}
             </p>
-            <div className="flex gap-2 mt-1 text-sm flex-wrap">
-              <span>{wateringFrequency}</span>
-              <span> • </span>
-              <span>{healthStatus}</span>
-            </div>
+            {!isSlider && (
+              <div className="flex gap-2 mt-1 text-sm flex-wrap">
+                <span>{wateringFrequency}</span>
+                <span> • </span>
+                <span>{healthStatus}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

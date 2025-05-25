@@ -37,7 +37,7 @@ const Slider = ({ title, plants }) => {
       >
         {plants.map((plant) => (
           <SwiperSlide key={plant._id}>
-            <PlantCard key={plant._id} plant={plant} />
+            <PlantCard key={plant._id} plant={plant} isSlider={true} />
           </SwiperSlide>
         ))}
       </Swiper>
