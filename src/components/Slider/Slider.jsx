@@ -4,8 +4,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
+import PlantCard from "../PlantCard/PlantCard";
 
-const Slider = ({ title }) => {
+const Slider = ({ title, plants }) => {
   return (
     <div className="">
       <h2 className="text-sm font-semibold mb-2 md:mb-4 text-accent/80">
@@ -29,39 +30,16 @@ const Slider = ({ title }) => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        loop={true}
+        loop={plants.length >= 6}
         navigation={true}
         modules={[Autoplay, Navigation]}
         className="mySwiper customSwiper"
       >
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyoj.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyoC.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyo0.jpg" alt="" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyoj.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyoC.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyo0.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyoj.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyoC.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://s14.gifyu.com/images/bsyo0.jpg" alt="" />
-        </SwiperSlide>
+        {plants.map((plant) => (
+          <SwiperSlide key={plant._id}>
+            <PlantCard key={plant._id} plant={plant} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
