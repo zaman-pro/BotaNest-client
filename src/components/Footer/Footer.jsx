@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="text-center py-10 px-4 text-accent space-y-5">
+    <footer className="text-center py-10 px-4 text-accent space-y-5 bg-base-200">
       <div>
         <h1 className="text-2xl font-bold text-secondary flex justify-center items-center gap-1">
           BotaNest

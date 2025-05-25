@@ -46,21 +46,21 @@ const PlantsTable = ({ plants, isMyPlants, handleDelete }) => {
                   <div className="flex flex-col gap-2">
                     <Link
                       to={`/updatePlant/${plant._id}`}
-                      className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-center text-white"
+                      className="bg-secondary/80 px-3 py-1 rounded hover:bg-accent text-sm text-center text-white"
                     >
                       Update
                     </Link>
 
                     <Link
                       onClick={() => handleDelete(plant._id)}
-                      className="bg-red-500 px-3 py-1 rounded hover:bg-accent text-sm text-center text-white"
+                      className="bg-red-400 px-3 py-1 rounded text-sm text-center text-white hover:bg-red-500"
                     >
                       Delete
                     </Link>
                   </div>
                 ) : (
                   <Link
-                    className="bg-secondary/90 px-3 py-1 rounded hover:bg-accent text-sm text-white"
+                    className="bg-secondary/80 px-3 py-1 rounded hover:bg-accent text-sm text-center text-white"
                     to={`/plants/${plant._id}`}
                   >
                     Details

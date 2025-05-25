@@ -33,7 +33,7 @@ const AddPlant = () => {
   };
 
   return (
-    <div className="min-h-screen px-3 mt-3">
+    <div className="min-h-screen px-3 my-3">
       <PlantForm handleAddPlant={handleAddPlant} />
     </div>
   );

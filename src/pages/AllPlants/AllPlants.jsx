@@ -34,7 +34,9 @@ const AllPlants = () => {
 
       {plants.length === 0 ? (
         <div className="flex flex-col items-center gap-5">
-          <p className="text-2xl text-gray-500">No plants added yet.</p>
+          <p className="text-xl md:text-2xl text-primary border p-5 rounded-2xl">
+            No plants added yet.
+          </p>
           <Link to="/addPlant" className="btn bg-secondary/90 text-white">
             Add Plant
           </Link>

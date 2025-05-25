@@ -7,6 +7,7 @@ import Lottie from "lottie-react";
 import seasonalGuide from "../../assets/Animation - 1748175727528.json";
 import lightingTips from "../../assets/Animation - 1748181773721.json";
 import "../../components/Slider/slider.css";
+import { Link } from "react-router";
 
 const Home = () => {
   const [plants, setPlants] = useState([]);
@@ -27,18 +28,28 @@ const Home = () => {
 
   return (
     <div className="p-4 space-y-5 md:space-y-10 lg:px-10">
-      <Slider title="Plant Varieties" plants={plants} />
-
-      <section>
-        <h2 className="text-2xl font-bold mb-6 text-secondary text-center">
-          New Plants
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {plants.map((plant) => (
-            <PlantCard key={plant._id} plant={plant} />
-          ))}
+      {plants.length === 0 ? (
+        <div className="flex flex-col items-center gap-5">
+          <p className="text-xl md:text-2xl text-primary border p-5 rounded-2xl">
+            No plants added yet.
+          </p>
         </div>
-      </section>
+      ) : (
+        <div className="space-y-5 md:space-y-10">
+          <Slider title="Plant Varieties" plants={plants} />
+
+          <section>
+            <h2 className="text-2xl font-bold mb-6 text-secondary text-center">
+              New Plants
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {plants.map((plant) => (
+                <PlantCard key={plant._id} plant={plant} />
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
 
       {/* Seasonal Planting */}
       <section className="bg-base-200 md:py-10 p-5 md:px-12 rounded-xl">
