@@ -2,7 +2,7 @@
 .swiper-button-prev {
   opacity: 0;
   transition: opacity 0.3s ease;
-  color: #ff5722;
+  color: #01663070;
 }
 
 .customSwiper:hover .swiper-button-next,

@@ -3,26 +3,32 @@ import useTitle from "../../utils/useTitle";
 import Slider from "../../components/Slider/Slider";
 import PlantCard from "../../components/PlantCard/PlantCard";
 import "../../components/Slider/slider.css";
+import Loading from "../Loading/Loading";
 
 const Home = () => {
-  useTitle("Home - BotaNest");
-
   const [plants, setPlants] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://a10-bota-nest-server-side.vercel.app/plants")
       .then((res) => res.json())
-      .then((data) => setPlants(data.slice(0, 6)));
+      .then((data) => setPlants(data.slice(0, 6)))
+      .catch((err) => console.error("Fetch error:", err))
+      .finally(() => setLoading(false));
   }, []);
+
+  useTitle(loading ? "Loading..." : "Home - BotaNest");
+
+  if (loading) return <Loading />;
 
   return (
     <div className="p-4 space-y-5 md:space-y-10 lg:px-10">
       {/* Banner/Slider */}
-
       <Slider title="Plant Varieties" plants={plants} />
 
       {/* New Plants */}
-      <section className="">
+      <section>
         <h2 className="text-2xl font-bold mb-6 text-green-800 text-center">
           New Plants
         </h2>
