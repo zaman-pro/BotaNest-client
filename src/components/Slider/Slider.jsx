@@ -9,7 +9,7 @@ import PlantCard from "../PlantCard/PlantCard";
 const Slider = ({ title, plants }) => {
   return (
     <div className="">
-      <h2 className="text-sm font-semibold mb-2 md:mb-4 text-accent/80">
+      <h2 className="text-2xl font-bold mb-6 text-green-800 text-center">
         {title}
       </h2>
 

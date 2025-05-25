@@ -16,10 +16,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="p-4 space-y-16 md:space-y-10 lg:px-10">
+    <div className="pt-4 space-y-5 md:space-y-10 lg:px-10">
       {/* Banner/Slider */}
 
-      <Slider title="Your Plant Care Companion" plants={plants} />
+      <Slider title="Plant Varieties" plants={plants} />
 
       {/* New Plants */}
       <section className="">
@@ -34,7 +34,7 @@ const Home = () => {
       </section>
 
       {/* Seasonal Planting Guide */}
-      <section className="bg-base-200 py-10 px-6 md:px-12 rounded-xl">
+      <section className="bg-base-200 md:py-10 p-5 md:px-12 rounded-xl">
         <h2 className="text-2xl font-bold mb-4 text-green-800 text-center">
           Seasonal Planting Guide
         </h2>
@@ -51,7 +51,7 @@ const Home = () => {
       </section>
 
       {/* Indoor Lighting Tips */}
-      <section className="bg-base-200 py-10 px-6 md:px-12">
+      <section className="bg-base-200 md:py-10 p-5 md:px-12 rounded-xl">
         <h2 className="text-2xl font-bold mb-4 text-green-800 text-center">
           Indoor Lighting Tips
         </h2>
